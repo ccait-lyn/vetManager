@@ -1,40 +1,40 @@
 package vetPetBeta;
 
 
-
 import java.util.Set;
 
-////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////
-////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////
-public class Doctor_Info{
+////DOCTOR INFO
 	private String doctorName;// Name of the veterinarian
-	private Set<Patient_Info.Species> speciesExperience; //Species the vet can treat
-	private Set<Patient_Info.Behavior> handledBehaviors;//Specific behaviors a vet can handle
-	private Set<Patient_Info.Availability> availability; //availability
+	
+	private Set<Species> speciesExperience; //Species the vet can treat
+	private Set<Behavior> handledBehaviors;//Specific behaviors a vet can handle
+	private Set<Availability> availability; //availability
+	
 	private boolean acceptsInsurance; //whether the doctor accepts insurance
 	private boolean isSurgeon; //qualified to do surgries
 	private boolean isDentist;// Qaulified to do dental
-////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////
-////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////////DOCTOR INFO////
+////DOCTOR INFO
 	
 
-////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////
-////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////
-	public Doctor_Info(String doctorName,Set<Patient_Info.Species> speciesExperience,Set<Patient_Info.Behavior> handledBehaviors,Set<Patient_Info.Availability> availableDays,boolean acceptsInsurance, boolean isSurgeon, boolean isDentist){
-		this.doctorName=doctorName;
-		this.speciesExperience= speciesExperience;
-		this.handledBehaviors= handledBehaviors;
-		this.availability =availableDays;
-		this.acceptsInsurance= acceptsInsurance;
-		this.isSurgeon= isSurgeon;
-		this.isDentist= isDentist;
+///CONSTRUCTOR
+	public Doctor_Info(String doctorName, Set<Species> speciesExperience,
+					   Set<Behavior> handledBehaviors, Set<Availability> 
+					   availableDays, boolean acceptsInsurance, boolean isSurgeon, boolean isDentist)
+	{
+        setDoctorName(doctorName);
+        setSupportedSpecies(speciesExperience);
+        setHandledBehaviors(handledBehaviors);
+        setAvailableDays(availableDays);
+
+        this.acceptsInsurance = acceptsInsurance;
+        this.isSurgeon = isSurgeon;
+        this.isDentist = isDentist;
 	}
-////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////
-////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////////CONSTRUCTOR////
+
+///CONSTRUCTOR
 
 	
-////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////
-////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////
+///GETTERS
 	public String getDoctorName(){
 		return doctorName;
 	}
@@ -62,60 +62,84 @@ public class Doctor_Info{
 	public boolean isDentist() {
 		return isDentist;
 	}
-////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////
-////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////////GETTERS////
+///GETTERS
 
 
-////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////
-////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////
-	public void setDoctorName(String doctorName) {
-		this.doctorName= doctorName;
-	}
 
-	public void setSupportedSpecies(Set<Patient_Info.Species> speciesExperience){
-		this.speciesExperience= speciesExperience;
-	}
+////SETTERS
+    public void setDoctorName(String doctorName) {
+        if (doctorName == null || doctorName.isBlank()) {
+            throw new IllegalArgumentException(
+                "Doctor name cannot be empty."
+            );
+        }
+        this.doctorName = doctorName;
+    }
 
-	public void setHandledBehaviors(Set<Patient_Info.Behavior> handledBehaviors){
-		this.handledBehaviors=handledBehaviors;
-	}
+    public void setSupportedSpecies(Set<Species> speciesExperience) {
+        if (speciesExperience == null || speciesExperience.isEmpty()) {
+            throw new IllegalArgumentException(
+                "Doctor must support at least one species."
+            );
+        }
+        this.speciesExperience = speciesExperience;
+    }
 
-	public void setAvailableDays(Set<Patient_Info.Availability> availableDays){
-		this.availability =availableDays;
-	}
+    public void setHandledBehaviors(Set<Behavior> handledBehaviors) {
+        if (handledBehaviors == null || handledBehaviors.isEmpty()) {
+            throw new IllegalArgumentException(
+                "Doctor must handle at least one behavior."
+            );
+        }
+        this.handledBehaviors = handledBehaviors;
+    }
 
-	public void setAcceptsInsurance(boolean acceptsInsurance){
-		this.acceptsInsurance= acceptsInsurance;
-	}
+    public void setAvailableDays(Set<Availability> availableDays) {
+        if (availableDays == null || availableDays.isEmpty()) {
+            throw new IllegalArgumentException(
+                "Doctor must have at least one available day."
+            );
+        }
+        this.availability = availableDays;
+    }
 
-	public void setSurgeon(boolean isSurgeon){
-		this.isSurgeon= isSurgeon;
-	}
-	
-	public void setDentist(boolean isDentist) {
-		this.isDentist=isDentist;
-	}
-////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////
-////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////////SETTERS////
+    public void setAcceptsInsurance(boolean acceptsInsurance) {
+        this.acceptsInsurance = acceptsInsurance;
+    }
 
-////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////
-////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////////METHODS////
-	
+    public void setSurgeon(boolean isSurgeon) {
+        this.isSurgeon = isSurgeon;
+    }
+
+    public void setDentist(boolean isDentist) {
+        this.isDentist = isDentist;
+    }
+
+////SETTERS
+
+
+
+////METHODS
 	public boolean canTreatPatient(Patient_Info patient){
+		
+		if (patient == null) {
+		    throw new IllegalArgumentException("Patient cannot be null.");
+		}
+		
 		//check if emergency to override
-		boolean speciesMatch =patient.isEmergency()||speciesExperience.contains(patient.getSpecies())  ||speciesExperience.contains(Patient_Info.Species.OTHER);//Check if there is a match for species and their experience
+		boolean speciesMatch = patient.isEmergency()||speciesExperience.contains(patient.getSpecies())  ||speciesExperience.contains(Species.OTHER);//Check if there is a match for species and their experience
 		
 		boolean behaviorMatch = handledBehaviors.contains(patient.getBehavior()); //check to see if the vet can handle the animals behavior
 		
 		//check if available
-		boolean available= false; //default is no
-		if(this.availability.contains(Patient_Info.Availability.ANYDAY)||patient.getAvailability().contains(Patient_Info.Availability.ANYDAY)){ //check if anyday is present, if present then they are available
-			available=true;
+		boolean available = false; //default is no
+		if(this.availability.contains(Availability.ANYDAY)||patient.getAvailability().contains(Availability.ANYDAY)){ //check if anyday is present, if present then they are available
+			available = true;
 		}else{
 	
-			for(Patient_Info.Availability day : patient.getAvailability()){//Else check every day within set to see if one matches
+			for(Availability day : patient.getAvailability()){//Else check every day within set to see if one matches
 				if(this.availability.contains(day)){
-					available= true;
+					available = true;
 					break;
 				}
 			}
@@ -123,11 +147,11 @@ public class Doctor_Info{
 
 		//check if surgeon or dentist
 		boolean surgeryMatch=true;
-		if (patient.getVisitReason()==Patient_Info.reasonForVisit.SURGERY){
+		if (patient.getVisitReason() == reasonForVisit.SURGERY){
 			surgeryMatch = this.isSurgeon;
 		}
 		boolean dentistMatch=true;
-		if (patient.getVisitReason()==Patient_Info.reasonForVisit.DENTAL) {
+		if (patient.getVisitReason() == reasonForVisit.DENTAL) {
 			dentistMatch=this.isDentist;
 		}
 
