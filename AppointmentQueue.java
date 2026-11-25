@@ -1,0 +1,84 @@
+package vetPetBeta;
+
+//AppointmentQueue For Current Day 
+//EX: Monday: |First | Max <-Whiskers <- Remy  | Last|
+//Because we are not doing time or a queue for the week, it will work according to first to schedule.
+
+public class AppointmentQueue{
+
+
+//Queue and constructor
+    private static class Node{
+        Patient_Info patient;//Current patient data
+        Node next;//Next Patient
+
+        Node(Patient_Info patient) {
+            this.patient = patient;
+            this.next = null;
+        }
+    }
+    
+    private Node head;//First in Queue
+    private Node tail;//Last in Queue
+    private int size; //Total number of patients in the days Queue
+
+    public AppointmentQueue(){//Constructor, empty queue
+        this.head= null;
+        this.tail= null;
+        this.size= 0;
+    }
+  //Queue and constructor
+
+  //METHOD: Add patient, will add to back of queue 
+    public void addToQueue(Patient_Info patient){
+        Node newNode= new Node(patient);
+        
+        if(isEmpty()){
+            head= newNode;
+            tail=newNode;
+        }else {
+            tail.next = newNode; 
+            tail= newNode; //node becomes new tail
+        }
+        size++;//increase current patients for day
+    }
+
+    
+   //METHOD: Remove patient from queue, when a patient has been handled, vetmanagers may remove them to indicate next patients turn
+    public Patient_Info removeFromQueue(){
+        if(isEmpty()){
+            return null;
+        }
+        Patient_Info patient=head.patient;
+        head=head.next;//make the current head the next in line
+        if(head== null){//check if someone is next in line
+            tail= null; //clear tail as well if no one is next
+        }
+        size--;//decrease current number of patients
+        return patient;
+    }
+
+   
+
+  //METHOD: Check if the queue is empty, if no head its empty
+    public boolean isEmpty(){
+        return head==null;
+    }
+    
+  //GETTER: Amount of patients in queue
+    public int size(){
+        return size;
+    }
+
+
+  
+  //METHOD: Check the next patient in line's info
+    public Patient_Info headInfo(){
+        if(isEmpty()){
+            return null;
+        }
+        return head.patient;
+    }
+}
+
+  
