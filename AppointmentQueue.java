@@ -1,10 +1,10 @@
-package vetPetBeta;
+package vetmanager;
 
 //AppointmentQueue For Current Day 
 //EX: Monday: |First | Max <-Whiskers <- Remy  | Last|
 //Because we are not doing time or a queue for the week, it will work according to first to schedule.
 
-public class AppointmentQueue{
+public class AppointmentQueue<T> {
 
 
 //Queue and constructor
@@ -58,6 +58,26 @@ public class AppointmentQueue{
         return patient;
     }
 
+    
+    public Patient_Info dequeue()
+	{
+		if(head == null)
+		{
+			return null;
+		}
+		
+		Patient_Info result = head.patient;
+		
+		head = head.next;
+		size--;
+		
+		if(head == null)
+		{
+			tail = null;
+		}
+		
+		return result;
+	}
    
 
   //METHOD: Check if the queue is empty, if no head its empty
