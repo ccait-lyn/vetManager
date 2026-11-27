@@ -4,12 +4,6 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 
-import vetmanager.Patient_Info.Species;
-import vetmanager.Patient_Info.Behavior;
-import vetmanager.Patient_Info.reasonForVisit;
-import vetmanager.Patient_Info.Availability;
-
-
 public class VetGUI {
 	
 	//info for patients
