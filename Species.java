@@ -1,4 +1,3 @@
-package vetPetBeta;
 public enum Species{
 	DOG,
 	CAT,

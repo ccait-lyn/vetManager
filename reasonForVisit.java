@@ -1,4 +1,3 @@
-package vetPetBeta;
 public enum reasonForVisit{
 	CHECK_UP, //CHECKS: Availabilty , and Species Speciality, behavior
 	VACCINATION,//CHECKS: Availabilty , and Species Speciality, Behavior
