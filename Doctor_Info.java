@@ -1,7 +1,8 @@
-package vetPetBeta;
-
+package vetmanager;
 
 import java.util.Set;
+
+public class Doctor_Info {
 
 ////DOCTOR INFO
 	private String doctorName;// Name of the veterinarian
@@ -19,7 +20,8 @@ import java.util.Set;
 ///CONSTRUCTOR
 	public Doctor_Info(String doctorName, Set<Species> speciesExperience,
 					   Set<Behavior> handledBehaviors, Set<Availability> 
-					   availableDays, boolean acceptsInsurance, boolean isSurgeon, boolean isDentist)
+					   availableDays, boolean acceptsInsurance, boolean isSurgeon, 
+					   boolean isDentist)
 	{
         setDoctorName(doctorName);
         setSupportedSpecies(speciesExperience);
@@ -39,15 +41,15 @@ import java.util.Set;
 		return doctorName;
 	}
 
-	public Set<Patient_Info.Species> getSupportedSpecies() {
+	public Set<Species> getSupportedSpecies() {
 		return speciesExperience;
 	}
 
-	public Set<Patient_Info.Behavior> getHandledBehaviors(){
+	public Set<Behavior> getHandledBehaviors(){
 		return handledBehaviors;
 	}
 
-	public Set<Patient_Info.Availability> getAvailableDays(){
+	public Set<Availability> getAvailableDays(){
 		return availability;
 	}
 
@@ -114,9 +116,7 @@ import java.util.Set;
     public void setDentist(boolean isDentist) {
         this.isDentist = isDentist;
     }
-
 ////SETTERS
-
 
 
 ////METHODS
@@ -157,6 +157,4 @@ import java.util.Set;
 
 		return speciesMatch && behaviorMatch && available && surgeryMatch&&dentistMatch;//if all is true then returns true for FE
 	}
-
-	
 }
