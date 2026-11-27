@@ -1,5 +1,3 @@
-package vetPetBeta;
-
 public enum Availability{
 	/*Availabiltiy is used to pair with the best Veternarian for their needs
 	 *  and if one of the days match with the other it will schedule

@@ -1,6 +1,4 @@
-package vetPetBeta;
 import java.util.Set;
-
 
 ////PATIENT INFO
 
@@ -22,7 +20,10 @@ public class Patient_Info {
 	
 ////CONSTRUCTOR
 
-	public Patient_Info(String ownerName, String patientName, boolean insurance, Species species,Behavior behavior, boolean vaccinated, reasonForVisit visitReason, boolean emergency,Set<Availability> availability){
+	public Patient_Info(String ownerName, String patientName, 
+        boolean insurance, Species species,Behavior behavior, boolean vaccinated, 
+        reasonForVisit visitReason, boolean emergency,Set<Availability> availability)
+    {
         setOwnerName(ownerName);
         setPatientName(patientName);
         setSpecies(species);
@@ -154,8 +155,20 @@ public class Patient_Info {
 	
 ////METHODS
 
-
 	public boolean requiresTwoVets(){ //iff surgery or animal  is aggresive 2 vets will be required
 		return (this.visitReason==reasonForVisit.SURGERY)|| (this.behavior == Behavior.Aggresive);
 	}
+
+    public String toString()
+    {
+        return "Owner: " + this.ownerName + "\n"
+        + "Patient: " + this.patientName + "\n"
+        + "Species: " + this.species + "\n"
+        + "Behavior: " + this.behavior + "\n"
+        + "Visit Reason: " + this.visitReason + "\n"
+        + "Availability: " + this.availability + "\n"
+        + "Insurance: " + (this.insurance ? "Yes" : "No") + "\n"
+        + "Vaccinated: " + (this.vaccinated ? "Yes" : "No") + "\n"
+        + "Emergency: " + (this.emergency ? "Yes" : "No");
+    }
 }

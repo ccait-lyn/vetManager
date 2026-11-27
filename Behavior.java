@@ -1,5 +1,3 @@
-package vetPetBeta;
-
 public enum Behavior{
 	Aggresive, //Will need 2 vets to handle
 	Docile,

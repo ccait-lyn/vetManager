@@ -1,8 +1,6 @@
-package vetPetBeta;
-
-
 import java.util.Set;
 
+public class Doctor_Info {
 ////DOCTOR INFO
 	private String doctorName;// Name of the veterinarian
 	
@@ -39,15 +37,15 @@ import java.util.Set;
 		return doctorName;
 	}
 
-	public Set<Patient_Info.Species> getSupportedSpecies() {
+	public Set<Species> getSupportedSpecies() {
 		return speciesExperience;
 	}
 
-	public Set<Patient_Info.Behavior> getHandledBehaviors(){
+	public Set<Behavior> getHandledBehaviors(){
 		return handledBehaviors;
 	}
 
-	public Set<Patient_Info.Availability> getAvailableDays(){
+	public Set<Availability> getAvailableDays(){
 		return availability;
 	}
 
@@ -127,17 +125,19 @@ import java.util.Set;
 		}
 		
 		//check if emergency to override
-		boolean speciesMatch = patient.isEmergency()||speciesExperience.contains(patient.getSpecies())  ||speciesExperience.contains(Species.OTHER);//Check if there is a match for species and their experience
+		boolean speciesMatch = patient.isEmergency() || speciesExperience.contains(patient.getSpecies()) || speciesExperience.contains(Species.OTHER);//Check if there is a match for species and their experience
 		
 		boolean behaviorMatch = handledBehaviors.contains(patient.getBehavior()); //check to see if the vet can handle the animals behavior
 		
 		//check if available
 		boolean available = false; //default is no
-		if(this.availability.contains(Availability.ANYDAY)||patient.getAvailability().contains(Availability.ANYDAY)){ //check if anyday is present, if present then they are available
+		if(this.availability.contains(Availability.ANYDAY)
+			|| patient.getAvailability().contains(Availability.ANYDAY)){ //check if anyday is present, if present then they are available
 			available = true;
-		}else{
+		}
+		else {
 	
-			for(Availability day : patient.getAvailability()){//Else check every day within set to see if one matches
+			for(Availability day : patient.getAvailability()){ //Else check every day within set to see if one matches
 				if(this.availability.contains(day)){
 					available = true;
 					break;
@@ -155,7 +155,7 @@ import java.util.Set;
 			dentistMatch=this.isDentist;
 		}
 
-		return speciesMatch && behaviorMatch && available && surgeryMatch&&dentistMatch;//if all is true then returns true for FE
+		return speciesMatch && behaviorMatch && available && surgeryMatch&&dentistMatch; //if all is true then returns true for FE
 	}
 
 	
