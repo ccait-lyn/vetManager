@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Set;
 
 public class VetGUI {
 	
@@ -267,7 +268,7 @@ public class VetGUI {
     backButtonP5.addActionListener(e -> cardLayout.show(mainPanel, "Screen2"));
     backButtonP3.addActionListener(e -> cardLayout.show(mainPanel, "Screen2"));
     backButtonP4.addActionListener(e -> cardLayout.show(mainPanel, "Screen2"));
-    confirmButton.addActionListener(e -> cardLayout.show(mainPanel, "Screen1"));
+    confirmButton.addActionListener(e -> registerPatient(frame, cardLayout, mainPanel));
     
     // Adds the screens to the mainPanel so if you need to add more menus put them here.
     mainPanel.add(screen1, "Screen1");
@@ -298,4 +299,33 @@ public class VetGUI {
 		}
 		registeredArea.setCaretPosition(0);
 	}
+	
+	// Registers the patient through the backend
+	
+	private static void registerPatient(JFrame frame, CardLayout cardLayout, JPanel mainPanel)
+	{
+	    try {
+	        backend.addPatient(
+	            ownerName.getText(),
+	            patientName.getText(),
+	            insurance.isSelected(),
+	            (Species) speciesbox.getSelectedItem(),
+	            (Behavior) behaviorbox.getSelectedItem(),
+	            vaccinated.isSelected(),
+	            (reasonForVisit) reasonForVisitbox.getSelectedItem(),
+	            emergency.isSelected(),
+	            Set.of((Availability) availabilitybox.getSelectedItem())
+	        );
+
+	        JOptionPane.showMessageDialog(frame, "Patient registered!");
+	        cardLayout.show(mainPanel, "Screen1");
+
+	    } catch (IllegalArgumentException ex) {
+	        JOptionPane.showMessageDialog(frame, ex.getMessage());
+	    }
+		
+	}
+	
+	
+	
 }
