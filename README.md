@@ -12,13 +12,21 @@ Team Members: Caitlyn Ly, Sara Craig, Afshine Keshwani, Ethan Ngo, Jacob Gomez, 
 
 # Team Credits
 Member Name  |  Contributions
+
 Caitlyn Ly  |  Group Organization, Project Planning, UML Diagram, Veterinarian_Aid_BE, VetGUI, GenLL
+
 Sara Craig  |  Project Planning, Software Design, Veterinarian_Aid_BE, AppointmentQueue, README
+
 Jacob Gomez  |  Initial Concept, Project Planning, Project Proposal, Patient_Info, Doctor_Info, Behavior, Species, Reason_For_Visit, Availability, AppointmentQueue
+
 Noah Gallaway  |  Project Planning, Software Requirements, VetGUI
+
 Kyle Crow  |  Part 1 Pre-Submission Revisions
+
 Vaibhav Kone  |  Behavior, Species, Reason_For_Visit, Availability
+
 Afshine Keshwani  |  Project Planning
+
 Ethan Ngo  |  
 
 # References
