@@ -159,6 +159,20 @@ public class Patient_Info {
 		return (this.visitReason==reasonForVisit.SURGERY)|| (this.behavior == Behavior.Aggresive);
 	}
 
+	public boolean equals(Object obj){
+		if(this==obj){//if current object is equal to proposed record
+			return true;
+		}
+		if(obj==null|| getClass()!=obj.getClass()){//since this accepts any object make sure its recieving a patient object and isnt null
+			return false;
+		}
+		Patient_Info other  =(Patient_Info) obj;
+		return this.ownerName.equalsIgnoreCase(other.ownerName)&&this.patientName.equalsIgnoreCase(other.patientName);//if this comes back true, that means their name is in the system
+		
+	}
+
+
+	
     public String toString()
     {
         return "Owner: " + this.ownerName + "\n"
