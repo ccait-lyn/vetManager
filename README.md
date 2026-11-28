@@ -3,11 +3,17 @@ Manages scheduling for a veterinary hospital. Adds and removes patient records a
 
 # Project Title and Team Information
 Project Title: Veterinary Scheduling and Processing System
+
 Course: CSE 1325 - Object Oriented Programming
+
 Group Number: 1
+
 Course Section: 003
+
 Team Name: VETPET
+
 Submission Date: (To be updated before submitting)
+
 Team Members: Caitlyn Ly, Sara Craig, Afshine Keshwani, Ethan Ngo, Jacob Gomez, Kyle Crow, Noah Gallaway, Vaibhav Kone
 
 # Team Credits
