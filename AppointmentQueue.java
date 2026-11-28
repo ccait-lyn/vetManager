@@ -82,6 +82,24 @@ public class AppointmentQueue {
         }
         return head.patient;
     }
+
+
+	//METHOD: Display all current appointments
+	public void displayAppointments(){
+		if(isEmpty()){
+			System.out.println("No appointments for today!");
+			return;
+		}
+		Node current=head;
+		int index=1;
+		while(current !=null){
+			System.out.println("Appointment #"+index++);
+			System.out.println("current.patient.toString());
+			System.out.println("______________________");//This formatting isnt tested and was only added for my visual sake, subject ot change
+			current= current.next;
+		}
+	}
+	
 }
 
   
