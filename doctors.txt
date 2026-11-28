@@ -1,0 +1,4 @@
+Dr. Smith|DOG,CAT|Docile,Hyper|MONDAY,WEDNESDAY,FRIDAY|true|true|false
+Dr. Jones|BIRD,REPTILE,RODENT|Docile,Submissive|TUESDAY,THURSDAY|false|false|false
+Dr. Brown|DOG,CAT,OTHER|Aggresive,Territorial,Hyper|MONDAY,THURSDAY,SATURDAY|true|false|true
+Dr. Wilson|DOG,CAT|Docile,Hyper|MONDAY,FRIDAY|true|false|true
